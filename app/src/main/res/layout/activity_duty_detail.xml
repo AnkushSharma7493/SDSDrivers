@@ -1,0 +1,128 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/edit_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="Sharma Driver Service"
+        app:titleTextColor="@android:color/white"
+        app:navigationIcon="@drawable/back"
+        android:elevation="4dp" />
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Customer Details -->
+        <EditText
+            android:id="@+id/edit_customer_name"
+            android:hint="Customer Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/edit_customer_phone"
+            android:hint="Customer Phone"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/edit_customer_address"
+            android:hint="Customer Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Driver Details -->
+        <EditText
+            android:id="@+id/edit_driver_name"
+            android:hint="Driver Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/edit_driver_phone"
+            android:hint="Driver Phone"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Time Pickers -->
+        <TextView
+            android:id="@+id/edit_reporting_date"
+            android:text="Reporting Date"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"/>
+
+        <TextView
+            android:id="@+id/text_reporting_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="#EEE"
+            android:onClick="selectReportingDate"/>
+
+        <TextView
+            android:id="@+id/edit_reporting_time"
+            android:text="Reporting Time"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"/>
+
+        <TextView
+            android:id="@+id/text_reporting_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="#EEE"
+            android:onClick="selectReportingTime"/>
+
+        <!-- Charges and Commission -->
+        <EditText
+            android:id="@+id/edit_charges"
+            android:hint="Charges"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/edit_commission"
+            android:hint="Commission"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/button_update_duty"
+            android:text="Update Duty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button_sms_customer"
+            android:text="Send Custom Message to Customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button_sms_driver"
+            android:text="Send Custom Message to Driver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

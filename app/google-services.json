@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "838164622165",
+    "project_id": "haridarshan-6cb45",
+    "storage_bucket": "haridarshan-6cb45.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838164622165:android:93d689cf6c3a5513935ddc",
+        "android_client_info": {
+          "package_name": "com.example.haridarshan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838164622165-issrfghft7b4k4n7qhe4984j7r0tsmml.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.haridarshan",
+            "certificate_hash": "676590bfea76b4106a055013a850291673201629"
+          }
+        },
+        {
+          "client_id": "838164622165-1ubitjh7u92tks9t92vdbstet17vtkua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqOynR_5DBr2QWbE7wiIFxiB9NJKD9MAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838164622165-1ubitjh7u92tks9t92vdbstet17vtkua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
