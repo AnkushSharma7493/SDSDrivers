@@ -5,10 +5,10 @@
         android:icon="@drawable/event_note" />
     <item
         android:id="@+id/nav_contacts"
-        android:title="Contacts"
+        android:title="Drivers"
         android:icon="@drawable/contacts" />
     <item
         android:id="@+id/nav_settings"
-        android:title="Settings"
-        android:icon="@drawable/settings" />
+        android:title="Commission"
+        android:icon="@drawable/rupee" />
 </menu>

@@ -4,11 +4,12 @@ public enum DutyStatus {
 
     UNASSIGNED("Unassigned"),
     ASSIGNED("Assigned"),
-    WAITING_CONFIRMATION("Waiting Confirmation"),
-    CONFIRMED("Confirmed"),
+    ACCEPTED("Accepted"),
+    REJECTED("Rejected"),
     IN_PROGRESS("InProgress"),
     COMPLETED("Completed"),
-    CANCELED("Cancelled");
+    CANCELED("Cancelled"),
+    ALL("All");
 
     private final String status;
 
@@ -18,6 +19,16 @@ public enum DutyStatus {
 
     public String getStatus() {
         return status;
+    }
+
+    // Static method to get enum by status string
+    public static DutyStatus getByStatus(String statusString) {
+        for (DutyStatus ds : values()) {
+            if (ds.status.equalsIgnoreCase(statusString)) {
+                return ds;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant for status: " + statusString);
     }
 
     // Method to return array of enum names as strings

@@ -45,6 +45,44 @@
         android:textColor="@color/black"
         android:text="Driver: Amit Yadav" />
 
+
+    <!-- Driver Phone -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:id="@+id/tvDriverPhone"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Driver Phone :8888888888"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/icon_call_driver"
+            android:src="@drawable/cal"
+            android:contentDescription="Call Driver"
+            android:padding="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvReportingTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Reporting: 2025-04-08 08:00 AM" />
+
     <!-- Customer Phone -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,7 +96,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="9999999999"
+            android:text="Customer Phone : 9999999999"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
 
@@ -75,48 +113,27 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvReportingTime"
+        android:id="@+id/tvDutyCharges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Charges: 1000"
         android:textColor="@color/black"
-        android:text="Reporting: 2025-04-08 08:00 AM" />
-
-    <!-- Driver Phone -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingTop="4dp">
-
-        <TextView
-            android:id="@+id/tvDriverPhone"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="8888888888"
-            android:textColor="@android:color/black"
-            android:textSize="14sp" />
-
-        <ImageView
-            android:id="@+id/icon_call_driver"
-            android:src="@drawable/cal"
-            android:contentDescription="Call Driver"
-            android:padding="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            />
-    </LinearLayout>
+        android:textStyle="italic" />
 
     <TextView
-        android:id="@+id/tvDutyStatus"
+        android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Status: Assigned"
         android:textColor="@color/black"
         android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/tvRegisterTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Register Time: 2025-04-08 08:00 AM" />
 
     <!-- Action Buttons -->
     <LinearLayout
@@ -127,10 +144,10 @@
         android:gravity="end">
 
         <Button
-            android:id="@+id/btnMarkComplete"
+            android:id="@+id/btnMarkStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Complete"
+            android:text="✏️ Status"
             android:textStyle="bold"
             android:textSize="10sp" />
 
@@ -138,7 +155,7 @@
             android:id="@+id/btnSmsCustomer"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="SMS Client"
+            android:text="💬 Client"
             android:textSize="10sp"
             android:textStyle="bold"
             android:layout_height="wrap_content"
@@ -148,7 +165,7 @@
             android:id="@+id/btnSmsDriver"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="SMS Driver"
+            android:text="💬 Driver"
             android:textStyle="bold"
             android:textSize="10sp"
             android:layout_height="wrap_content"

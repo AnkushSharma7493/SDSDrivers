@@ -1,128 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <!-- Toolbar -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/edit_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:title="Sharma Driver Service"
-        app:titleTextColor="@android:color/white"
-        app:navigationIcon="@drawable/back"
-        android:elevation="4dp" />
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Toolbar with title, back, and save icon -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/edit_duty_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:title="Duty Details"
+        android:titleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:navigationIcon="@drawable/back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Save icon on top right -->
+    <ImageView
+        android:id="@+id/btn_update"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/save"
+        android:contentDescription="Save"
+        app:layout_constraintTop_toTopOf="@id/edit_duty_toolbar"
+        app:layout_constraintBottom_toBottomOf="@id/edit_duty_toolbar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Delete icon on top right -->
+    <ImageView
+        android:id="@+id/btn_delete"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="50dp"
+        android:src="@drawable/delete"
+        android:contentDescription="Delete"
+        app:layout_constraintTop_toTopOf="@id/edit_duty_toolbar"
+        app:layout_constraintBottom_toBottomOf="@id/edit_duty_toolbar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- Scrollable Form Content -->
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/edit_duty_toolbar"
+        app:layout_constraintBottom_toTopOf="@id/button_panel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Customer Details -->
-        <EditText
-            android:id="@+id/edit_customer_name"
-            android:hint="Customer Name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/edit_customer_phone"
-            android:hint="Customer Phone"
-            android:inputType="phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/edit_customer_address"
-            android:hint="Customer Address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Driver Details -->
-        <EditText
-            android:id="@+id/edit_driver_name"
-            android:hint="Driver Name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/edit_driver_phone"
-            android:hint="Driver Phone"
-            android:inputType="phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Time Pickers -->
-        <TextView
-            android:id="@+id/edit_reporting_date"
-            android:text="Reporting Date"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"/>
-
-        <TextView
-            android:id="@+id/text_reporting_date"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:background="#EEE"
-            android:onClick="selectReportingDate"/>
+            android:orientation="vertical"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/label_customer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Customer Name"/>
+            <EditText
+                android:id="@+id/edit_customer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:drawableEnd="@android:drawable/ic_menu_search"
+                android:inputType="none"
+                android:hint="Customer Name" />
 
-        <TextView
-            android:id="@+id/edit_reporting_time"
-            android:text="Reporting Time"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"/>
+            <TextView
+                android:id="@+id/label_customer_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Customer Phone"/>
+            <EditText
+                android:id="@+id/edit_customer_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Customer Phone" />
 
-        <TextView
-            android:id="@+id/text_reporting_time"
-            android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/label_customer_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Customer Address"/>
+            <EditText
+                android:id="@+id/edit_customer_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Customer Address" />
+            <TextView
+                android:id="@+id/label_driver_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Driver Name"/>
+            <EditText
+                android:id="@+id/edit_driver_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:drawableEnd="@android:drawable/ic_menu_search"
+                android:inputType="none"
+                android:hint="Driver Name" />
+            <TextView
+                android:id="@+id/label_driver_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Driver Phone"/>
+            <EditText
+                android:id="@+id/edit_driver_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Driver Phone" />
+            <TextView
+                android:id="@+id/label_charges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duty Charges"/>
+            <EditText
+                android:id="@+id/edit_charges"
+                android:hint="Duty Charges"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/label_commison"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Commision Amount"/>
+            <EditText
+                android:id="@+id/edit_commission"
+                android:hint="Commission"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/label_duty_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duty Date"/>
+            <EditText
+                android:id="@+id/editDutyDate"
+                android:hint="Duty Date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:layout_marginTop="12dp" />
+            <TextView
+                android:id="@+id/label_duty_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duty Time"/>
+            <EditText
+                android:id="@+id/editDutyTime"
+                android:hint="Duty Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:layout_marginTop="12dp" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/label_duty_status"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Duty Status"/>-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/editDutyStatus"-->
+<!--                android:hint="Duty Status"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:focusable="false"-->
+<!--                android:inputType="none"-->
+<!--                android:layout_marginTop="12dp" />-->
+
+            <TextView
+                android:id="@+id/label_commisson_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Commisson Status"/>
+
+            <EditText
+                android:id="@+id/editCommissonStatus"
+                android:hint="Commisson Status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:layout_marginTop="12dp" />
+
+            <!-- Loading Spinner -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:id="@+id/button_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <Button
+            android:id="@+id/btn_message_customer"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:background="#EEE"
-            android:onClick="selectReportingTime"/>
-
-        <!-- Charges and Commission -->
-        <EditText
-            android:id="@+id/edit_charges"
-            android:hint="Charges"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/edit_commission"
-            android:hint="Commission"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Buttons -->
+            android:text="💬 Customer"
+            android:layout_marginStart="6dp" />
         <Button
-            android:id="@+id/button_update_duty"
-            android:text="Update Duty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:id="@+id/btn_message_driver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💬 Driver"
+            android:layout_marginStart="6dp" />
 
-        <Button
-            android:id="@+id/button_sms_customer"
-            android:text="Send Custom Message to Customer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/button_sms_driver"
-            android:text="Send Custom Message to Driver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </LinearLayout>
-</ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

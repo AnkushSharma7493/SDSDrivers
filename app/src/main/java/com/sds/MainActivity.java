@@ -1,5 +1,8 @@
 package com.sds;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,23 +12,22 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.sds.databinding.ActivityMainBinding;
+import com.sds.ui.activities.LoginActivity;
+import com.sds.ui.services.ApplicationContext;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private static final String APP_NAME="Sharma Driver Service";
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +36,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_duties, R.id.nav_contacts, R.id.nav_settings)
-                .build();
+        prefs = this.getSharedPreferences(ApplicationContext.DRIVER_CACHE, Context.MODE_PRIVATE);
+        
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-
-        // This will control the fragement title show at the top,
-        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         // Setting Toolbar
@@ -59,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Hook listeners
         ImageView profileIcon = customView.findViewById(R.id.profile_icon);
-        ImageView filterIcon = customView.findViewById(R.id.filter_icon);
+        ImageView notificationIcon = customView.findViewById(R.id.notification_icon);
         TextView title = toolbar.findViewById(R.id.toolbar_title);
 
         title.setText(APP_NAME); // Set dynamically if needed
@@ -75,7 +69,11 @@ public class MainActivity extends AppCompatActivity {
                         // handle view profile
                         return true;
                     case "Sign Out":
-                        // handle sign out
+                        prefs.edit().remove(ApplicationContext.DRIVER_PHONE_CACHE).apply();
+                        prefs.edit().remove(ApplicationContext.DRIVER_PIN_CACHE).apply();
+                        prefs.edit().remove(ApplicationContext.DRIVER_ROLE_CACHE).apply();
+
+                        startActivity(new Intent(this, LoginActivity.class));
                         return true;
                 }
                 return false;
@@ -84,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             popup.show();
         });
 
-        filterIcon.setOnClickListener(v -> {
+        notificationIcon.setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(this, v);
             popup.getMenu().add("Non Assigned Driver");
             popup.getMenu().add("Assigned Driver");
@@ -108,5 +106,4 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 }

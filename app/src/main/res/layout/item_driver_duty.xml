@@ -1,0 +1,154 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/bg_card">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="4dp">
+
+        <TextView
+            android:id="@+id/tvDutyCustomerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Customer: Bhushan"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+    <!-- Customer Phone -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:id="@+id/tvDutyCustomerPhone"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Phone : 9999999999"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/icon_call_duty_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cal"
+            android:contentDescription="Call Customer"
+            android:padding="4dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDutyReportingTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Reporting: 2025-04-08 08:00 AM" />
+
+    <TextView
+        android:id="@+id/tvDutyCharge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Charges: 1000"
+        android:textColor="@color/black"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/tvDutyaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address : Sector 12 RDC GHaziabad 201001"
+        android:textColor="@color/black"
+        android:textStyle="italic" />
+
+
+    <TextView
+        android:id="@+id/tvDutynote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Note : Do not smoke cigrets on duty."
+        android:textColor="@color/black"
+        android:textStyle="italic" />
+
+
+    <LinearLayout
+        android:id="@+id/dutyAcceptRejectStatusButtonRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="1dp"
+        android:visibility="visible"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnAcceptDuty"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Accept Duty"
+            android:backgroundTint="@color/common_google_signin_btn_text_light"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnRejectDuty"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reject Duty"
+            android:backgroundTint="@color/common_google_signin_btn_text_light"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="8dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/dutyStartStopButtonRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="1dp"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnStartDuty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Duty"
+            android:backgroundTint="@color/black"
+            android:textColor="@android:color/white"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnCompleteDuty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Complete Duty"
+            android:backgroundTint="@color/black"
+            android:textColor="@android:color/white"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+</LinearLayout>

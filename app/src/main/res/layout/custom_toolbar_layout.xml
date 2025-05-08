@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/sds"
-        android:contentDescription="SDS" />
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:contentDescription="SDS"
+        android:src="@drawable/logoheader" />
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -33,11 +33,11 @@
         android:layout_weight="1" />
 
     <ImageView
-        android:id="@+id/filter_icon"
+        android:id="@+id/notification_icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:src="@drawable/tune"
-        android:contentDescription="Filter"
+        android:src="@drawable/notifications"
+        android:contentDescription="Notifications"
         android:layout_marginEnd="12dp" />
 
     <ImageView
