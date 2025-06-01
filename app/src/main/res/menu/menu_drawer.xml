@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_duties"
+        android:id="@+id/nav_driver_duties"
         android:title="Duties"
         android:icon="@drawable/car" />
 

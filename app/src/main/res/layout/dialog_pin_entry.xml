@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp">
+
+    <!-- Cancel (X) Icon -->
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:tint="@android:color/black"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Customer PIN"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_close" />
+
+    <!-- PIN Boxes -->
+    <LinearLayout
+        android:id="@+id/pin_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/title"
+        android:layout_marginTop="16dp">
+
+        <EditText android:id="@+id/pin1" style="@style/PinBoxStyle" />
+        <EditText android:id="@+id/pin2" style="@style/PinBoxStyle" />
+        <EditText android:id="@+id/pin3" style="@style/PinBoxStyle" />
+        <EditText android:id="@+id/pin4" style="@style/PinBoxStyle" />
+    </LinearLayout>
+
+</RelativeLayout>

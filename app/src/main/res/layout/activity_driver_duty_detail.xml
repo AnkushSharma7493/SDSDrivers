@@ -5,21 +5,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="0dp">
 
     <!-- Toolbar with title, back, and save icon -->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/duty_toolbar"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:background="?attr/colorPrimary"-->
+<!--        android:title="Duty Details"-->
+<!--        android:titleTextColor="@android:color/white"-->
+<!--        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+<!--        app:navigationIcon="@drawable/back"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/edit_duty_toolbar"
+        android:id="@+id/duty_toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@android:color/black"
         android:title="Duty Details"
         android:titleTextColor="@android:color/white"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:navigationIcon="@drawable/back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 
     <!-- Scrollable Form Content -->
@@ -28,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/edit_duty_toolbar"
+        app:layout_constraintTop_toBottomOf="@id/duty_toolbar"
         app:layout_constraintBottom_toTopOf="@id/button_panel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -44,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="Customer Name"/>
             <EditText
-                android:id="@+id/edit_customer_name"
+                android:id="@+id/customer_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="false"
@@ -59,9 +73,10 @@
                 android:layout_height="wrap_content"
                 android:text="Customer Phone"/>
             <EditText
-                android:id="@+id/edit_customer_phone"
+                android:id="@+id/customer_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusable="false"
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:inputType="none"
@@ -73,9 +88,10 @@
                 android:layout_height="wrap_content"
                 android:text="Customer Address"/>
             <EditText
-                android:id="@+id/edit_customer_address"
+                android:id="@+id/customer_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusable="false"
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:inputType="none"
@@ -86,8 +102,9 @@
                 android:layout_height="wrap_content"
                 android:text="Duty Charges"/>
             <EditText
-                android:id="@+id/edit_charges"
+                android:id="@+id/charges"
                 android:hint="Duty Charges"
+                android:focusable="false"
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:inputType="none"
@@ -99,8 +116,9 @@
                 android:layout_height="wrap_content"
                 android:text="Duty Actual Charges"/>
             <EditText
-                android:id="@+id/edit_actual_charges"
+                android:id="@+id/actual_charges"
                 android:hint="Duty Actual Charges"
+                android:focusable="false"
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:inputType="none"
@@ -112,8 +130,9 @@
                 android:layout_height="wrap_content"
                 android:text="Commision Amount"/>
             <EditText
-                android:id="@+id/edit_commission"
+                android:id="@+id/commission"
                 android:hint="Commission"
+                android:focusable="false"
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:inputType="none"
@@ -125,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:text="Duty Date"/>
             <EditText
-                android:id="@+id/editDutyDate"
+                android:id="@+id/dutyDate"
                 android:hint="Duty Date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,15 +157,44 @@
                 android:id="@+id/label_duty_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Duty Time"/>
+                android:text="Duty Reporting Time"/>
             <EditText
-                android:id="@+id/editDutyTime"
+                android:id="@+id/dutyTime"
                 android:hint="Duty Time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="false"
                 android:clickable="false"
                 android:cursorVisible="false"
+                android:inputType="none"
+                android:layout_marginTop="12dp" />
+
+
+            <TextView
+                android:id="@+id/label_start_duty_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duty Start Time"/>
+            <EditText
+                android:id="@+id/startDutyTime"
+                android:hint="Duty Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:id="@+id/label_complete_duty_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duty Complete Time"/>
+            <EditText
+                android:id="@+id/completeDutyTime"
+                android:hint="Duty Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
                 android:inputType="none"
                 android:layout_marginTop="12dp" />
 
@@ -157,7 +205,7 @@
                 android:text="Duty Status"/>
 
             <EditText
-                android:id="@+id/editDutyStatus"
+                android:id="@+id/dutyStatus"
                 android:hint="Duty Status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -174,7 +222,7 @@
                 android:text="Commisson Status"/>
 
             <EditText
-                android:id="@+id/editCommissonStatus"
+                android:id="@+id/commissonStatus"
                 android:hint="Commisson Status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -209,6 +257,8 @@
         <Button
             android:id="@+id/btnPayCommission"
             android:layout_width="match_parent"
+            android:backgroundTint="@color/common_google_signin_btn_text_light"
+            android:textColor="@android:color/white"
             android:layout_height="wrap_content"
             android:text="Pay Commisson"
             android:visibility="visible" />

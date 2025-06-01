@@ -12,4 +12,7 @@
     <color name="blue">#a7faf9</color>
     <color name="red">#faa7c8</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="greendark">#75FB4C</color>
+    <color name="reddark">#EA3323</color>
+    <color name="grey">#666666</color>
 </resources>

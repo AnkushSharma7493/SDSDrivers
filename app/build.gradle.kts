@@ -3,12 +3,14 @@ plugins {
     alias(libs.plugins.google.service)
 }
 
+
+
 android {
-    namespace = "com.sds"
+    namespace = "com.sds.driver"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.sds"
+        applicationId = "com.sds.driver"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -32,6 +34,17 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+
+    applicationVariants.all {
+        outputs.all {
+            var appName = "SDS-Driver"
+            val buildType = buildType.name
+            val newApkName = "$appName-$buildType.apk"
+            if (this is com.android.build.gradle.internal.api.ApkVariantOutputImpl) {
+                outputFileName = newApkName
+            }
+        }
     }
 }
 

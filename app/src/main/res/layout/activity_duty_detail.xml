@@ -159,7 +159,7 @@
                 android:id="@+id/label_duty_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Duty Time"/>
+                android:text="Duty Reporting Time"/>
             <EditText
                 android:id="@+id/editDutyTime"
                 android:hint="Duty Time"
@@ -169,20 +169,34 @@
                 android:inputType="none"
                 android:layout_marginTop="12dp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/label_duty_status"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Duty Status"/>-->
+            <TextView
+                android:id="@+id/label_start_duty_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duty Start Time"/>
+            <EditText
+                android:id="@+id/editStartDutyTime"
+                android:hint="Duty Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:layout_marginTop="12dp" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/editDutyStatus"-->
-<!--                android:hint="Duty Status"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:focusable="false"-->
-<!--                android:inputType="none"-->
-<!--                android:layout_marginTop="12dp" />-->
+            <TextView
+                android:id="@+id/label_complete_duty_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Duty Complete Time"/>
+            <EditText
+                android:id="@+id/editCompleteDutyTime"
+                android:hint="Duty Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:layout_marginTop="12dp" />
+
 
             <TextView
                 android:id="@+id/label_commisson_status"
