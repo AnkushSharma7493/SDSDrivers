@@ -158,6 +158,7 @@ public class CommissionPaymentFragment extends Fragment {
         String note = "CommissionPayment";
         String amount = "100.00";
 
+
         Uri uri = Uri.parse("upi://pay").buildUpon()
                 .appendQueryParameter("pa", ApplicationContext.getUpi_id())          // Payee VPA (required)
                 .appendQueryParameter("pn", name)           // Payee name (required)
