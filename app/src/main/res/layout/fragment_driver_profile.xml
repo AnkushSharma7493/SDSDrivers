@@ -3,7 +3,172 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".driver.ui.fragements.driver.DriverProfileFragment">
+    tools:context="com.sds.driver.ui.fragements.driver.DriverProfileFragment">
+    <ScrollView
+        android:id="@+id/profilescrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/label_driver_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Driver Name"/>
+            <EditText
+                android:id="@+id/edit_driver_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none"
+                android:hint="Driver Name" />
+
+            <TextView
+                android:id="@+id/label_driver_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Driver Phone"/>
+            <EditText
+                android:id="@+id/edit_driver_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Driver Phone" />
+
+            <TextView
+                android:id="@+id/label_driver_emergency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Emergency Phone"/>
+            <EditText
+                android:id="@+id/edit_driver_emergency_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Emergency Phone" />
+
+            <TextView
+                android:id="@+id/label_driver_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current Address"/>
+            <EditText
+                android:id="@+id/edit_current_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Current Address" />
+
+            <TextView
+                android:id="@+id/label_driver_native_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Native Address"/>
+            <EditText
+                android:id="@+id/edit_current_native_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Native Address" />
+
+            <TextView
+                android:id="@+id/label_birth_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date Of Birth"/>
+            <EditText
+                android:id="@+id/edit_birth_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Date Of Birth" />
+
+            <TextView
+                android:id="@+id/label_aadhaarNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aadhar Number"/>
+            <EditText
+                android:id="@+id/edit_aadhaarNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="aadhaarNo" />
+
+            <TextView
+                android:id="@+id/label_licenceNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Licence Number"/>
+            <EditText
+                android:id="@+id/edit_licenceNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="licenceNo" />
+
+            <TextView
+                android:id="@+id/label_driverExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Driver Experience"/>
+            <EditText
+                android:id="@+id/edit_driverExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Driver Experience" />
+
+            <TextView
+                android:id="@+id/label_joiningDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Joining Date"/>
+            <EditText
+                android:id="@+id/edit_joiningDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Joining Date" />
+
+            <TextView
+                android:id="@+id/label_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status"/>
+            <EditText
+                android:id="@+id/edit_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Active" />
+
+            <TextView
+                android:id="@+id/label_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Driver Note"/>
+            <EditText
+                android:id="@+id/edit_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="..." />
+
+            <!-- Loading Spinner -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
 
 
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

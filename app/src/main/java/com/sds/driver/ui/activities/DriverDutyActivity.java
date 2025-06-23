@@ -1,5 +1,6 @@
 package com.sds.driver.ui.activities;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +32,7 @@ import com.sds.driver.ui.fragements.driver.DriverProfileFragment;
 import com.sds.driver.ui.services.ApplicationContext;
 import com.sds.driver.ui.services.FireStoreDutyBackgroundService;
 
+
 public class DriverDutyActivity extends AppCompatActivity {
 
     private SharedPreferences prefs;
@@ -38,6 +40,7 @@ public class DriverDutyActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private ProgressBar loader;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,18 @@ public class DriverDutyActivity extends AppCompatActivity {
         //Call logic for fragement navigations
         navigationView.setNavigationItemSelectedListener(this::handleNavigationFragement);
 
+        // Notification
+        Intent intent = new Intent(DriverDutyActivity.this, DriverDutyActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                DriverDutyActivity.this,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
+        ApplicationContext.setPendingIntent(pendingIntent);
     }
 
     @Override
@@ -144,4 +159,8 @@ public class DriverDutyActivity extends AppCompatActivity {
         startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
+
+
+
+
 }

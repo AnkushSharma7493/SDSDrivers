@@ -35,9 +35,6 @@
             tools:ignore="ForegroundServicePermission" />
 
         <activity
-            android:name="com.sds.driver.ui.activities.DriverProfileActivity"
-            android:exported="false" />
-        <activity
             android:name="com.sds.driver.ui.activities.DriverDutyDetailActivity"
             android:exported="false" />
         <activity

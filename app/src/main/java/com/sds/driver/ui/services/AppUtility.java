@@ -1,10 +1,14 @@
 package com.sds.driver.ui.services;
 
+import com.sds.driver.ui.models.AppSettings;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 
 public class AppUtility {
@@ -103,6 +107,28 @@ public class AppUtility {
         return text.replaceAll("[^\\p{ASCII}\\p{L}\\p{N}\\p{P}\\p{Z}\\s]", "");
     }
 
+    public static Map<String, String> parseUpiResponse(String response) {
+        Map<String, String> map = new HashMap<>();
+        String[] pairs = response.split("&");
 
+        for (String pair : pairs) {
+            String[] keyValue = pair.split("=");
+            if (keyValue.length >= 2) {
+                map.put(keyValue[0].toLowerCase(), keyValue[1]);
+            }
+        }
+
+        return map;
+    }
+
+    public static void updateApplicationSetting(AppSettings settings){
+        ApplicationContext.setUpi_id(settings.getUpi_id());
+        ApplicationContext.setUpi_name(settings.getUpi_name());
+        ApplicationContext.setAdminPhone(settings.getAdminPhone());
+        ApplicationContext.setCommissionPercentage(settings.getCommissionPercentage());
+        ApplicationContext.setCritalOperationPassword(settings.getCriticalOperationPassword());
+        ApplicationContext.setDateCriteria(settings.isDateCriteria());
+        ApplicationContext.setSkipCache(settings.isSkipCache());
+    }
 
 }

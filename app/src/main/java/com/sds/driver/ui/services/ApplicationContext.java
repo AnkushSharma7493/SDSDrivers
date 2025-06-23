@@ -1,6 +1,9 @@
 package com.sds.driver.ui.services;
 
+import android.app.PendingIntent;
+
 import com.sds.driver.ui.enums.ErrorCodeEnum;
+import com.sds.driver.ui.models.Driver;
 
 import java.util.ArrayList;
 
@@ -12,9 +15,16 @@ public class ApplicationContext {
     private static boolean skipCache=false;
     private static boolean dateCriteria=false;
     private static boolean showError=true;
-    private static String adminPhone="9999999999";
+    private static String adminPhone="8800130490";
+    private static Driver profile;
 
+    private static String upi_id;
+    private static String upi_name;
     private static ArrayList<ErrorCodeEnum> stacktrace=new ArrayList<>();
+
+    private static Driver driver=null;
+
+    private static PendingIntent pendingIntent;
 
 
     //final param
@@ -87,4 +97,45 @@ public class ApplicationContext {
     public static void setAdminPhone(String adminPhone) {
         ApplicationContext.adminPhone = adminPhone;
     }
+
+    public static Driver getProfile() {
+        return profile;
+    }
+
+    public static void setProfile(Driver profile) {
+        ApplicationContext.profile = profile;
+    }
+
+    public static String getUpi_id() {
+        return upi_id;
+    }
+
+    public static void setUpi_id(String upiid) {
+        upi_id = upiid;
+    }
+
+    public static String getUpi_name() {
+        return upi_name;
+    }
+
+    public static void setUpi_name(String upiname) {
+        upi_name = upiname;
+    }
+
+    public static Driver getDriver() {
+        return driver;
+    }
+
+    public static void setDriver(Driver driver) {
+        ApplicationContext.driver = driver;
+    }
+
+    public static PendingIntent getPendingIntent() {
+        return pendingIntent;
+    }
+
+    public static void setPendingIntent(PendingIntent pendingIntent) {
+        ApplicationContext.pendingIntent = pendingIntent;
+    }
 }
+

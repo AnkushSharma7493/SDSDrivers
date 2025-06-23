@@ -28,6 +28,7 @@ public class Duty extends ViewModel implements Parcelable {
     private Integer actualCharges;
     private Integer charges;
     private Integer commission;
+    private Integer commissionPercentage;
     private CommissionStatus commissionStatus;
     private DutyStatus dutyStatus;
     private Date dutyReportingDate;
@@ -45,7 +46,7 @@ public class Duty extends ViewModel implements Parcelable {
         this.dutyId= UUID.randomUUID().toString();
     }
     public Duty(String dutyId, String customerAddress, String customerName, String customerPhone,
-                String driverName, String driverPhone, Integer actualCharges,Integer charges, Integer commission,
+                String driverName, String driverPhone, Integer actualCharges,Integer charges, Integer commission,Integer commissionPercentage,
                 CommissionStatus commissionStatus, DutyStatus dutyStatus,
                 Date dutyReportingTime, Date dutyStartTime, Date dutyEndTime, Date dutyReportingDate, String notes,List<RejectDuty> rejectReason,Date dutyRegisteredOn) {
         this.dutyId = dutyId;
@@ -57,6 +58,7 @@ public class Duty extends ViewModel implements Parcelable {
         this.actualCharges = actualCharges;
         this.charges = charges;
         this.commission = commission;
+        this.commissionPercentage = commissionPercentage;
         this.commissionStatus = commissionStatus;
         this.dutyStatus = dutyStatus;
         this.dutyReportingDate=dutyReportingDate;
@@ -79,6 +81,7 @@ public class Duty extends ViewModel implements Parcelable {
         this.actualCharges = in.readInt();
         this.charges = in.readInt();
         this.commission = in.readInt();
+        this.commissionPercentage = in.readInt();
         this.commissionStatus = CommissionStatus.valueOf(in.readString());
         this.dutyStatus = DutyStatus.valueOf(in.readString());
         this.dutyReportingDate=new Date(in.readLong());
@@ -121,6 +124,7 @@ public class Duty extends ViewModel implements Parcelable {
         dest.writeInt(this.actualCharges ==null?0:this.actualCharges);
         dest.writeInt(this.charges ==null?0:this.charges);
         dest.writeInt(this.commission==null?0:this.commission);
+        dest.writeInt(this.commissionPercentage==null?0:this.commissionPercentage);
         dest.writeString(this.commissionStatus.name());
         dest.writeString(this.dutyStatus.name());
         dest.writeLong(dutyReportingDate != null ? dutyReportingDate.getTime() : 0);
@@ -278,5 +282,26 @@ public class Duty extends ViewModel implements Parcelable {
 
     public void setDutyRegisteredOn(Date dutyRegisteredOn) {
         this.dutyRegisteredOn = dutyRegisteredOn;
+    }
+
+    public Integer getCommissionPercentage() {
+        return commissionPercentage;
+    }
+
+    public void setCommissionPercentage(Integer commissionPercentage) {
+        this.commissionPercentage = commissionPercentage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Duty duty = (Duty) o;
+        return dutyId != null && dutyId.equals(duty.dutyId);
+    }
+
+    @Override
+    public int hashCode() {
+        return dutyId != null ? dutyId.hashCode() : 0;
     }
 }

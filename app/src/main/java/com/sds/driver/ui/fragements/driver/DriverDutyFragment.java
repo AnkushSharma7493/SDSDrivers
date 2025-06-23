@@ -114,9 +114,14 @@ public class DriverDutyFragment extends Fragment {
                                 && d.getDutyStatus()!= DutyStatus.COMPLETED
                                 && d.getDutyStatus()!= DutyStatus.REJECTED)
                         .collect(Collectors.toList());
-                binding.noDutyView.setVisibility(View.GONE);
-                driverDutyAdapter.setDutyList(dutyList);
-                recyclerView.setAdapter(driverDutyAdapter);
+                if(dutyList.size()>0) {
+                    binding.noDutyView.setVisibility(View.GONE);
+                    driverDutyAdapter.setDutyList(dutyList);
+                    recyclerView.setAdapter(driverDutyAdapter);
+                } else {
+                    binding.noDutyView.setVisibility(View.VISIBLE);
+                    Toast.makeText(requireContext(), "No Duty Available Now.", Toast.LENGTH_SHORT).show();
+                }
             }
         }
 
@@ -278,7 +283,7 @@ public class DriverDutyFragment extends Fragment {
 
             int received = Integer.parseInt(input);
             duty.setActualCharges(received);
-            duty.setCommission(received*ApplicationContext.getCommissionPercentage()/100);
+            duty.setCommission(received*duty.getCommissionPercentage()/100);
             dialog.dismiss();
             showCustomPinDialog();
         });

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".driver.ui.fragements.driver.DriverDutyFragment">
+    tools:context="com.sds.driver.ui.fragements.driver.DriverDutyFragment">
 
         <!-- Main Content -->
         <LinearLayout

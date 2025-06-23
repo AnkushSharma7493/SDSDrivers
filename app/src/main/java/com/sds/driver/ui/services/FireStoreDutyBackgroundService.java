@@ -4,10 +4,14 @@ import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.AudioAttributes;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
@@ -44,7 +48,6 @@ public class FireStoreDutyBackgroundService extends Service {
 
     private List<Duty> dutyList=new ArrayList<>();
 
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -71,7 +74,7 @@ public class FireStoreDutyBackgroundService extends Service {
                 .setContentTitle(title)
                 .setContentText(message) // update notification message
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setAutoCancel(true)
+                .setContentIntent(ApplicationContext.getPendingIntent())
                 .build();
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
@@ -85,13 +88,21 @@ public class FireStoreDutyBackgroundService extends Service {
                 .setContentTitle("Sharma Driver Services")
                 .setContentText(text)
                 .setSmallIcon(R.drawable.logonotification)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(ApplicationContext.getPendingIntent())
                 .build();
     }
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID, "Sharma Driver Services ", NotificationManager.IMPORTANCE_LOW);
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build();
+            channel.setSound(defaultSoundUri,audioAttributes);
             getSystemService(NotificationManager.class).createNotificationChannel(channel);
         }
     }
